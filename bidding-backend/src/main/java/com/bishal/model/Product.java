@@ -16,6 +16,9 @@ public class Product {
 	private String productName;
 	private int price;
 	private String description;
+	
+
+	
 
 	private String img_url;
 	@ManyToOne(cascade=CascadeType.ALL)
