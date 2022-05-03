@@ -24,6 +24,18 @@ public class Product {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
+//	
+//	    @ManyToOne
+//	    private User seller;
+//
+//	    @ManyToOne
+//	    private User buyer;
+//
+//	    public boolean hasBuyer(){
+//	        if(this.buyer!=null)
+//	            return true;
+//	        else return false;
+//	    }
 
 //	@ManyToOne
 //	private Category catgory;

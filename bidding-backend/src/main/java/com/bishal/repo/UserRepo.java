@@ -10,4 +10,8 @@ import com.bishal.model.User;
 public interface UserRepo extends JpaRepository<User, Long> {
     public User findByUsername(String username);
 
+	public User findOne(String username);
+
+
+
 }

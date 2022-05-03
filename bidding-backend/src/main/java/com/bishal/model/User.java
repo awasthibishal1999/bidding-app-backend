@@ -2,57 +2,95 @@ package com.bishal.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 
 @Entity
 public class User {
-	
+	@Id
+	@GeneratedValue
+	private Long Id;
+	private String username;
+	private String password;
+	private String name;
+	private double balance;
+	private double penalty = 0;// 20% from unpaid lot
+
+	public User(Long id, String username, String password, String name, double balance, double penalty) {
+		super();
+		Id = id;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.balance = balance;
+		this.penalty = penalty;
+	}
+
 	public Long getId() {
-		return id;
+		return Id;
 	}
+
 	public void setId(Long id) {
-		this.id = id;
+		Id = id;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public User(Long id, String username, String name, String email, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.name = name;
-		this.email = email;
-		this.password = password;
+
+	public String getName() {
+		return name;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String username;
-	private String name;
-	private String email;
-	private String password;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	public double getPenalty() {
+		return penalty;
+	}
+
+	public void setPenalty(double penalty) {
+		this.penalty = penalty;
+	}
+
+	public User(String username, String password, String name, String surname, String email, double balance) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.balance = balance;
+	}
+
+	public void addPenalty(double penalty) {
+		this.penalty += penalty;
+	}
+
+	public void addMoney(double amount) {
+		this.balance += amount;
+	}
+
+	public void subtractMoney(double amount) {
+		this.balance -= amount;
+	}
 
 }
